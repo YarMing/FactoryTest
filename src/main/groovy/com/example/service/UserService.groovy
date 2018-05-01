@@ -8,5 +8,5 @@ interface UserService {
     Boolean updateUser(User user)
     User selectUserById(int id)
     List<User> selectAllUser()
-    Object selectUserByUser(User user)
+    User selectUserByUser(User user)
 }

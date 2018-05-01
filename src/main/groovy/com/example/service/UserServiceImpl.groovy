@@ -11,10 +11,27 @@ class UserServiceImpl implements UserService {
     @Autowired
     UserDao userDao
 
+    //插入用户业务
     @Override
     Boolean insertUser(User user) {
+        if(user.getUsername()!=null&& !"".equals(user.getUsername())){
+            try {
+                int addUser = userDao.insertUser(user)
+                if (addUser>0){
+                    return true
+                }else {
+                    throw RuntimeException("插入用户失败！")
+                }
+            }catch (Exception e)
+            {
+                throw RuntimeException ("插入用户失败！"+e.getMessage())
+            }
 
-       return true
+        }else {
+            throw new RuntimeException("用户名不能为空！")
+        }
+
+
     }
 
     @Override
@@ -38,18 +55,25 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
-    Object selectUserByUser(User user) {
-        String message = ""
-        User user1 = userDao.selectUserByUser(user)
-        if (user1!=null) {
-            message = "查询成功"
-            println message
-            return user1
-        }
-        else {
-            message = "查询失败"
-            println message
-            return message
+    User selectUserByUser(User user) {
+        if(user.getUsername()!=null&&!"".equals(user.getUsername()&&user.getPassword()!=null&&!"".equals(user.getPassword())))
+        {
+            try {
+                User userByUser = userDao.selectUserByUser(user)
+                if (userByUser!=null){
+                    return userByUser
+                }else {
+                    throw RuntimeException("查询用户失败！")
+                }
+
+
+            }catch (Exception e){
+                throw RuntimeException("查询用户失败！"+e.getMessage())
+            }
+
+
+        }else {
+            throw RuntimeException("用户名和密码不能为空")
         }
     }
 }

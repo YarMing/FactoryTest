@@ -1,4 +1,4 @@
-package com.example.dao
+package com.example.service
 
 import com.example.model.User
 import org.junit.Assert
@@ -9,64 +9,51 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 
+
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/spring-*.xml")
-class UserDaoTest{
+class UserServiceImplTest  {
 
     @Autowired
-    UserDao userDao
+    UserServiceImpl userService
 
     @Test
     @Ignore
     void testInsertUser() {
         User user = new User()
-        user.setUsername("lilianjie")
+        user.setUsername("banfu")
         user.setPassword("654321")
-        int addUser = userDao.insertUser(user)
-        Assert.assertEquals(1,addUser)
-
+        Boolean userTrue = userService.insertUser(user)
+        Assert.assertEquals(true,userTrue)
     }
 
     @Test
     @Ignore
     void testDeleteUserById() {
-        int delUser = userDao.deleteUserById(12)
-        Assert.assertEquals(1,delUser)
-
     }
 
     @Test
     @Ignore
     void testUpdateUser() {
-        User user = new User()
-        user.setId(2)
-        user.setUsername("caoyunrui")
-        user.setPassword("123456")
-        int updUser = userDao.updateUser(user)
-        Assert.assertEquals(1,updUser)
     }
 
     @Test
     @Ignore
     void testSelectUserById() {
-      User user  = userDao.selectUserById(1)
-        Assert.assertEquals("yanming", user.getUsername())
     }
 
-    @Test
-    @Ignore
     void testSelectAllUser() {
-        List<User> userList = userDao.selectAllUser()
-        Assert.assertEquals(6,userList.size())
     }
 
     @Test
     @Ignore
     void testSelectUserByUser() {
         User user = new User()
-        user.setUsername("yanming")
+        user.setUsername("banfu")
         user.setPassword("654321")
-        User seleUser = userDao.selectUserByUser(user)
-        Assert.assertEquals("yanming",seleUser.getUsername())
+        User userByUser = userService.selectUserByUser(user)
+        Assert.assertEquals(user.getUsername(),userByUser.getUsername())
+        Assert.assertEquals(user.getPassword(),userByUser.getPassword())
     }
 }
