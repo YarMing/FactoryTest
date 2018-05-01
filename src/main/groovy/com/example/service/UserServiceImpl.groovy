@@ -12,26 +12,19 @@ class UserServiceImpl implements UserService {
     UserDao userDao
 
     @Override
-    String insertUser(User user) {
+    Boolean insertUser(User user) {
 
-        String message = ""
-
-        int i = userDao.insertUser(user)
-        if (i>0)
-            message = "插入成功"
-        else
-            message = "插入失败"
-        return message
+       return true
     }
 
     @Override
-    int deleteUserById(int id) {
-        return 0
+    Boolean deleteUserById(int id) {
+        return true
     }
 
     @Override
-    int updateUser(User user) {
-        return 0
+    Boolean updateUser(User user) {
+        return true
     }
 
     @Override
