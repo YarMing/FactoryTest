@@ -28,10 +28,10 @@
             values (#{username},#{password})
     </insert>
 
-    <update id="updateUser" parameterType="java.lang.Long">
+    <update id="updateUser" parameterType="com.example.model.User">
         update user
         <set>
-            <if test="username!=null">username=#{username}</if>
+            <if test="username!=null">username=#{username},</if>
             <if test="password!=null">password=#{password}</if>
         </set> 
         where id=#{id}

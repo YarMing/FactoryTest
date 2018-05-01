@@ -36,13 +36,13 @@ class UserDaoTest{
     }
 
     @Test
-    @Ignore//此方法测试未通过
+    @Ignore
     void testUpdateUser() {
         User user = new User()
-        user.setId(6)
-        user.setUsername("gefanglun")
-        user.setPassword("654321")
-       int updUser = userDao.updateUser(user)
+        user.setId(2)
+        user.setUsername("caoyunrui")
+        user.setPassword("123456")
+        int updUser = userDao.updateUser(user)
         Assert.assertEquals(1,updUser)
     }
 
