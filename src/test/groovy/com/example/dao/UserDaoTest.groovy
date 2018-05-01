@@ -20,7 +20,7 @@ class UserDaoTest{
     @Ignore
     void testInsertUser() {
         User user = new User()
-        user.setUsername("fanyiguan")
+        user.setUsername("lilianjie")
         user.setPassword("654321")
         int addUser = userDao.insertUser(user)
         Assert.assertEquals(1,addUser)

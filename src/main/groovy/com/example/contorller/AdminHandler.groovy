@@ -1,7 +1,7 @@
 package com.example.contorller
 
 import com.example.model.User
-import com.example.service.UserServiceImp
+import com.example.service.UserServiceImpl
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
@@ -12,13 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping
 class AdminHandler {
 
     @Autowired
-    UserServiceImp userServiceImp
+    UserServiceImpl userServiceImpl
 
 
-    //实现登录
+    //插入用户
+    @RequestMapping("/insert")
+    Object insertUser(){
+
+        String message = userServiceImpl.insertUser()
+        println message
+        return "insert"
+    }
+
+
+    //按用户名密码查询用户实现登录
     @RequestMapping("/selectUser")
     Object selectUserByUser(User user){
-        Object message = userServiceImp.selectUserByUser(user)
+        Object message = userServiceImpl.selectUserByUser(user)
 
         if(message.getClass().getName()=="com.example.model.User") {
             def username = message.getUsername()
@@ -34,16 +44,9 @@ class AdminHandler {
         }else {
 
             println message
-            return "error"
+                return "error"
         }
 
     }
-    //模拟工厂模式实现
-    @RequestMapping("/insert")
-    Object insertUser(User user){
 
-        String message = userServiceImp.insertUser(user)
-        println message
-        return "insert"
-    }
 }
