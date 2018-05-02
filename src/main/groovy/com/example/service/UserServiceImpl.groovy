@@ -31,27 +31,85 @@ class UserServiceImpl implements UserService {
             throw new RuntimeException("用户名不能为空！")
         }
 
-
     }
 
     @Override
     Boolean deleteUserById(int id) {
-        return true
+        if (id!=0){
+            try {
+                int delUserById = userDao.deleteUserById(id)
+                if (delUserById!=0){
+                    return true
+                }else
+                {
+                    throw RuntimeException("用户查询失败！")
+                }
+            }catch (Exception e){
+                throw RuntimeException("用户查询失败！"+e.getMessage())
+            }
+
+
+    }else {
+        throw RuntimeException("用户编号不能为空！")
+    }
+
     }
 
     @Override
     Boolean updateUser(User user) {
-        return true
+        if (user.getUsername()!=null&&!"".equals(user.getUsername()&&user.getPassword()!=null&&!"".equals(user.getPassword())))
+        {
+            try {
+                int updUser = userDao.updateUser(user)
+                if (updUser!=null){
+                    return true
+                }else {
+                    throw RuntimeException("用户修改失败！")
+                }
+            }catch (Exception e){
+                throw RuntimeException("用户修改失败！"+e.getMessage())
+            }
+
+
+        }else {
+            throw RuntimeException("用户名或密码不能为空！")
+        }
     }
 
     @Override
     User selectUserById(int id) {
-        return null
+        if (id!=0){
+            try {
+                User userById = userDao.selectUserById(id)
+                if (userById!=null){
+                    return userById
+                }else
+                {
+                    throw RuntimeException("用户查询失败！")
+                }
+            }catch (Exception e){
+                throw RuntimeException("用户查询失败！"+e.getMessage())
+            }
+
+        }else {
+            throw RuntimeException("用户编号不能为空！")
+        }
     }
 
     @Override
     List<User> selectAllUser() {
-        return null
+        try {
+            List<User> userList = userDao.selectAllUser()
+            if (userList!=null){
+                return userList
+            }else {
+                throw RuntimeException("查询用户信息失败！")
+            }
+        }catch (Exception e){
+            throw RuntimeException("查询用户信息失败！"+e.getMessage())
+        }
+
+        return
     }
 
     @Override

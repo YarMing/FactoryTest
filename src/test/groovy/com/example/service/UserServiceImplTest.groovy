@@ -31,19 +31,37 @@ class UserServiceImplTest  {
     @Test
     @Ignore
     void testDeleteUserById() {
+       Boolean delUserById = userService.deleteUserById(8)
+        Assert.assertEquals(true,delUserById)
     }
 
     @Test
     @Ignore
     void testUpdateUser() {
+        User user = new User()
+        user.setId(1)
+        user.setUsername("yanming")
+        user.setPassword("654321")
+        Boolean updUser = userService.updateUser(user)
+        Assert.assertEquals(true,updUser)
     }
 
     @Test
     @Ignore
     void testSelectUserById() {
+        User userById = userService.selectUserById(1)
+        Assert.assertEquals("yanming",userById.getUsername())
     }
 
+    @Test
+
     void testSelectAllUser() {
+        List<User> userList = userService.selectAllUser()
+        User user = new User()
+        user.setId(1)
+        user.setUsername("gefanglun")
+        user.setPassword("654321")
+        Assert.assertEquals(user.getUsername(),userList.get(1).getUsername())
     }
 
     @Test
