@@ -4,6 +4,7 @@ import com.example.dao.UserDao
 import com.example.model.User
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class UserServiceImpl implements UserService {
@@ -13,6 +14,7 @@ class UserServiceImpl implements UserService {
 
     //插入用户业务
     @Override
+    @Transactional
     Boolean insertUser(User user) {
         if(user.getUsername()!=null&& !"".equals(user.getUsername())){
             try {
@@ -34,6 +36,7 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     Boolean deleteUserById(int id) {
         if (id!=0){
             try {
@@ -56,6 +59,7 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     Boolean updateUser(User user) {
         if (user.getUsername()!=null&&!"".equals(user.getUsername()&&user.getPassword()!=null&&!"".equals(user.getPassword())))
         {
