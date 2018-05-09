@@ -5,4 +5,5 @@ class Role {
     def sects
     def somatotype
     def sex
+    def homemaster
 }

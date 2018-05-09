@@ -14,8 +14,10 @@
         <link rel="stylesheet" href="<%=basePath%>bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="<%=basePath%>bootstrap/css/master.css" />
         <script src="<%=basePath%>bootstrap/js/bootstrap.js"></script>
+        <script src="<%=basePath%>bootstrap/js/jquery.min.js"></script>
+        <script src="<%=basePath%>bootstrap/js/form.js"></script>
     </head>
-    <body>
+    <body charset="utf-8">
         <form action="/admin/insert" method="post">
             <div class="mycenter">
             <div class="mysign">
@@ -35,7 +37,7 @@
                 </div>
                 <div class="col-lg-10"></div>
                 <div class="col-lg-10">
-                    <button type="submit" class="btn btn-success col-lg-12">登录</button>
+                    <button type="button" id="id" class="btn btn-success col-lg-12">登录</button>
                 </div>
             </div>
         </div>
