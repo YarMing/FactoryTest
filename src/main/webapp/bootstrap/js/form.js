@@ -6,17 +6,20 @@ $(function () {
           values[parms[x].name] = parms[x].value;
       }
 
-        alert(JSON.stringify(values))
+        var web = JSON.stringify(values)
+        var parse = JSON.parse(web)
+
         $.ajax({
-            type: "post",
-            url: "/admin/insert",
-            dataType: "application/json;charset=utf-8",
-            data: JSON.stringify(values),
+            type:"post",
+            url:"/admin/insert",
+            data:{'name':JSON.stringify(values)},
+            dataType:"json",
             success: function (data) {
-                if (data!=null) {
-                    alert("新增成功");
+                if (data.username!=null&&data.username==parse.username) {
+                    alert("登录成功");
+                    self.location='homepage.jsp';
                 } else {
-                    alert("失败")
+                    alert("登录失败"+JSON.stringify(values))
                 };
             }
 

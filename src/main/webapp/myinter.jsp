@@ -18,7 +18,7 @@
         <script src="<%=basePath%>bootstrap/js/form.js"></script>
     </head>
     <body charset="utf-8">
-        <form action="/admin/insert" method="post">
+        <form action="/admin/insert" method="post" accept-charset="u">
             <div class="mycenter">
             <div class="mysign">
                 <div class="col-lg-11 text-center text-info">

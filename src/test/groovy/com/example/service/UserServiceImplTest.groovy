@@ -65,10 +65,10 @@ class UserServiceImplTest  {
     }
 
     @Test
-    @Ignore
+
     void testSelectUserByUser() {
         User user = new User()
-        user.setUsername("banfu")
+        user.setUsername("yanming")
         user.setPassword("654321")
         User userByUser = userService.selectUserByUser(user)
         Assert.assertEquals(user.getUsername(),userByUser.getUsername())
