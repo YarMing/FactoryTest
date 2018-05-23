@@ -23,6 +23,7 @@ class UserHandler {
 
     HashMap<Object,User> map = new HashMap<Object,User>()
 
+    //工具
     @Autowired
     void mapUser(){
         List<User> userList=userService.selectAllUser()
