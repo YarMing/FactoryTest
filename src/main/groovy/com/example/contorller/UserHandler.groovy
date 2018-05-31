@@ -38,8 +38,8 @@ class UserHandler {
 
 
     @ResponseBody
-    @RequestMapping(value = "/insert",method = RequestMethod.POST)
-    Object insert(User user){
+    @RequestMapping(value = "/select",method = RequestMethod.POST)
+    Object select(User user){
 
 //        List<User> userList=userService.selectAllUser()
 //        HashMap<Object,User> map = new HashMap<Object,User>()
@@ -62,11 +62,10 @@ class UserHandler {
         }
 
 
+    }
 
-
-
-
-
+    @RequestMapping(value = "/insert",method = RequestMethod.POST)
+    Object insert(){
 
     }
 

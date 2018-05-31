@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>剑网三师门主页</title>
+    <link rel="shortcut icon" type="image/png" href="images/icon.png">
 </head>
 <body>
 这是主界面你知道的！

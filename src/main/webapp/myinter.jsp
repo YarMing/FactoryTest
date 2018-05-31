@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <html>
     <head>
 
@@ -17,7 +17,10 @@
 
     <style>
         body {
-            background: #f8f6e9;
+            background-image: url("images/denglu.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.8;
         }
         .mycenter{
             margin-top: 100px;
@@ -102,7 +105,7 @@
 
                 $.ajax({
                     type:"post",
-                    url:"/admin/insert",
+                    url:"/admin/select",
                     data:{"username":parse.username,"password":parse.password},
                     dataType:"json",
                     success: function (data) {
@@ -128,6 +131,10 @@
 
                 });
 
+            });
+
+            $("#id01").click(function () {
+                self.location='insert.jsp';
             });
 
         })
